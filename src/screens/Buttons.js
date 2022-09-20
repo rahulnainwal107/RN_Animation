@@ -14,6 +14,10 @@ function Buttons({ navigation }) {
         buttonName={"Animation 1"}
         onPress={onButtonPress.bind(this, "Animation1")}
       />
+      <Button
+        buttonName={"Animation 2"}
+        onPress={onButtonPress.bind(this, "Animation2")}
+      />
     </View>
   );
 }
