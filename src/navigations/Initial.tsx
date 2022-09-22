@@ -9,6 +9,7 @@ import Animation1 from "../screens/Animation1";
 import Animation2 from "../screens/Animation2";
 import Animation3 from "../screens/Animation3";
 import Animation4 from "../screens/Animation4";
+import Animation5 from "../screens/Animation5";
 
 const Stack = createNativeStackNavigator();
 
@@ -20,6 +21,7 @@ function Initial() {
       <Stack.Screen name="Animation2" component={Animation2} />
       <Stack.Screen name="Animation3" component={Animation3} />
       <Stack.Screen name="Animation4" component={Animation4} />
+      <Stack.Screen name="Animation5" component={Animation5} />
     </Stack.Navigator>
   );
 }

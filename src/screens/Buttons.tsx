@@ -12,7 +12,7 @@ function Buttons({ navigation }) {
     <View style={styles.mainContainer}>
       <Button
         buttonName={"Animation 1"}
-        subText="Animation that will animated using opacity, rotation, scale and borderRadius."
+        subText="Animation that will animated using opacity, rotation, scale and borderRadius"
         onPress={onButtonPress.bind(this, "Animation1")}
       />
       <Button
@@ -22,13 +22,18 @@ function Buttons({ navigation }) {
       />
       <Button
         buttonName={"Animation 3"}
-        subText="Horizontal animation inside scrollview on scroll."
+        subText="Horizontal animation inside scrollview on scroll"
         onPress={onButtonPress.bind(this, "Animation3")}
       />
       <Button
         buttonName={"Image animation"}
         subText="Image scale with done press"
         onPress={onButtonPress.bind(this, "Animation4")}
+      />
+      <Button
+        buttonName={"Switch Button Animation"}
+        subText="Switch button animation"
+        onPress={onButtonPress.bind(this, "Animation5")}
       />
     </View>
   );

@@ -11,7 +11,7 @@ const Button: React.FC<ButtonProps> = ({ buttonName, subText, onPress }) => {
   return (
     <TouchableOpacity style={styles.button} onPress={onPress}>
       <Text style={styles.buttonText}>{buttonName}</Text>
-      {subText && <Text style={styles.subText}>{subText}</Text>}
+      {subText && <Text style={styles.subText}>( {subText} )</Text>}
     </TouchableOpacity>
   );
 };
@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
   },
   subText: {
     fontSize: 14,
-    color: "black",
+    color: "white",
     fontWeight: "500",
     textAlign: "center",
   },
