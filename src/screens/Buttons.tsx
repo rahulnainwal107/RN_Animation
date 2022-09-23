@@ -35,6 +35,11 @@ function Buttons({ navigation }) {
         subText="Switch button animation"
         onPress={onButtonPress.bind(this, "Animation5")}
       />
+      <Button
+        buttonName={"Theme Animation"}
+        subText="An animation related to theme switching"
+        onPress={onButtonPress.bind(this, "Animation6")}
+      />
     </View>
   );
 }
