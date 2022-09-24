@@ -45,6 +45,11 @@ function Buttons({ navigation }) {
         subText="An animation related to floating action button animation (Not completed yet)"
         onPress={onButtonPress.bind(this, "Animation7")}
       />
+      <Button
+        buttonName={"Pinch Gesture Handler"}
+        subText="An animation related to pintch gesture animation"
+        onPress={onButtonPress.bind(this, "Animation8")}
+      />
     </View>
   );
 }
