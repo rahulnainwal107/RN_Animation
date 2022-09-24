@@ -40,6 +40,11 @@ function Buttons({ navigation }) {
         subText="An animation related to theme switching"
         onPress={onButtonPress.bind(this, "Animation6")}
       />
+      <Button
+        buttonName={"Floating Action Button Animation"}
+        subText="An animation related to floating action button animation (Not completed yet)"
+        onPress={onButtonPress.bind(this, "Animation7")}
+      />
     </View>
   );
 }
