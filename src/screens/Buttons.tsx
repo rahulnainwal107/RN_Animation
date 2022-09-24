@@ -50,6 +50,11 @@ function Buttons({ navigation }) {
         subText="An animation related to pintch gesture animation"
         onPress={onButtonPress.bind(this, "Animation8")}
       />
+      <Button
+        buttonName={"Youtube Like Button"}
+        subText="Youtube mobile app like button animation"
+        onPress={onButtonPress.bind(this, "Animation9")}
+      />
     </View>
   );
 }
