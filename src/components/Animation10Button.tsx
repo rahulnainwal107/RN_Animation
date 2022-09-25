@@ -6,6 +6,7 @@ import Animated, {
   FadeIn,
   FadeInRight,
   FadeOut,
+  FlipOutEasyY,
   JumpingTransition,
   Layout,
   RotateInDownLeft,
@@ -29,7 +30,7 @@ const Animation10Button: React.FC<buttonProps> = ({ onPress }) => {
     <AnimatedTouchableButton
       style={styles.container}
       entering={RotateInDownLeft}
-      exiting={SlideOutLeft.duration(1000)}
+      exiting={FlipOutEasyY.duration(1000)}
       layout={Layout}
       onPress={onPress}
     ></AnimatedTouchableButton>
