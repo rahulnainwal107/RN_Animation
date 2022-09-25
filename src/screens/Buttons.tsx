@@ -78,6 +78,12 @@ function Buttons({ navigation }) {
       subTitle: "Layout animation effect with fade in and fade out",
       onPress: onButtonPress.bind(this, "Animation10"),
     },
+    {
+      id: 11,
+      buttonName: "Accordion Animation",
+      subTitle: "Accordion list animation",
+      onPress: onButtonPress.bind(this, "Animation11"),
+    },
   ]);
 
   const renderItem = ({ item }) => {
