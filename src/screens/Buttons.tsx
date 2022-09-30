@@ -84,6 +84,12 @@ function Buttons({ navigation }) {
       subTitle: "Accordion list animation",
       onPress: onButtonPress.bind(this, "Animation11"),
     },
+    {
+      id: 12,
+      buttonName: "Button with loader",
+      subTitle: "Zoho people like button",
+      onPress: onButtonPress.bind(this, "Animation12"),
+    },
   ]);
 
   const renderItem = ({ item }) => {

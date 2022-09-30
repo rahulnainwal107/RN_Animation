@@ -5,17 +5,20 @@ import * as React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import Buttons from "../screens/Buttons";
-import Animation1 from "../screens/Animation1";
-import Animation2 from "../screens/Animation2";
-import Animation3 from "../screens/Animation3";
-import Animation4 from "../screens/Animation4";
-import Animation5 from "../screens/Animation5";
-import Animation6 from "../screens/Animation6";
-import Animation7 from "../screens/Animation7";
-import Animation8 from "../screens/Animation8";
-import Animation9 from "../screens/Animation9";
-import Animation10 from "../screens/Animation10";
-import Animation11 from "../screens/Animation11";
+import {
+  Animation1,
+  Animation2,
+  Animation3,
+  Animation4,
+  Animation5,
+  Animation6,
+  Animation7,
+  Animation8,
+  Animation9,
+  Animation10,
+  Animation11,
+  Animation12,
+} from "../screens/index";
 
 const Stack = createNativeStackNavigator();
 
@@ -34,6 +37,7 @@ function Initial() {
       <Stack.Screen name="Animation9" component={Animation9} />
       <Stack.Screen name="Animation10" component={Animation10} />
       <Stack.Screen name="Animation11" component={Animation11} />
+      <Stack.Screen name="Animation12" component={Animation12} />
     </Stack.Navigator>
   );
 }
