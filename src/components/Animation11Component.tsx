@@ -22,6 +22,8 @@ import Animated, {
   withSpring,
   useAnimatedStyle,
   interpolateColor,
+  interpolate,
+  withTiming,
 } from "react-native-reanimated";
 import Ionicons from "@expo/vector-icons/Ionicons";
 
@@ -40,6 +42,10 @@ interface points {
 type visiblity = true | false;
 
 const { width } = Dimensions.get("window");
+const BUTTON_HEIGHT = 40,
+  SUBITEM_HEIGHT = BUTTON_HEIGHT,
+  BUTTON_CONTAINER_MARGIN = 10,
+  MARGIN_BETWEEN_ITEM_SUBITEM = BUTTON_CONTAINER_MARGIN;
 
 const Animation11Component: React.FC<Animation11Props> = ({
   title,
@@ -48,7 +54,7 @@ const Animation11Component: React.FC<Animation11Props> = ({
   const [isSubItemsVisible, setSubItemsVisible] = useState<visiblity>(false);
 
   const drivedAnimatedValue = useDerivedValue(() => {
-    return isSubItemsVisible ? withSpring(1) : withSpring(0);
+    return isSubItemsVisible ? withSpring(1) : withTiming(0);
   }, [isSubItemsVisible]);
 
   const changeVisiblity = () => {
@@ -56,11 +62,7 @@ const Animation11Component: React.FC<Animation11Props> = ({
   };
 
   const animatedStyle = useAnimatedStyle(() => {
-    const rotate = interpolateColor(
-      drivedAnimatedValue.value,
-      [0, 1],
-      [0, 180]
-    );
+    const rotate = interpolate(drivedAnimatedValue.value, [0, 1], [0, 180]);
     return {
       color: interpolateColor(
         drivedAnimatedValue.value,
@@ -71,8 +73,24 @@ const Animation11Component: React.FC<Animation11Props> = ({
     };
   }, []);
 
+  const mainContainerAnimatedStyle = useAnimatedStyle(() => {
+    const height = interpolate(
+      drivedAnimatedValue.value,
+      [0, 1],
+      [
+        BUTTON_HEIGHT,
+        BUTTON_HEIGHT +
+          points.length * SUBITEM_HEIGHT +
+          MARGIN_BETWEEN_ITEM_SUBITEM,
+      ]
+    );
+    return {
+      height,
+    };
+  }, []);
+
   return (
-    <View style={styles.mainContainer}>
+    <Animated.View style={[styles.mainContainer, mainContainerAnimatedStyle]}>
       <TouchableOpacity
         style={styles.headerContainer}
         onPress={changeVisiblity}
@@ -112,7 +130,7 @@ const Animation11Component: React.FC<Animation11Props> = ({
           })}
         </Animated.View>
       )}
-    </View>
+    </Animated.View>
   );
 };
 
@@ -120,10 +138,10 @@ export default Animation11Component;
 
 const styles = StyleSheet.create({
   mainContainer: {
-    margin: 10,
+    margin: BUTTON_CONTAINER_MARGIN,
   },
   headerContainer: {
-    height: 40,
+    height: BUTTON_HEIGHT,
     backgroundColor: "grey",
     alignItems: "center",
     flexDirection: "row",
@@ -138,10 +156,10 @@ const styles = StyleSheet.create({
   subItemContainer: {
     borderRadius: 5,
     backgroundColor: "grey",
-    marginTop: 10,
+    marginTop: MARGIN_BETWEEN_ITEM_SUBITEM,
   },
   subItems: {
-    height: 40,
+    height: SUBITEM_HEIGHT,
     alignItems: "center",
     flexDirection: "row",
     paddingHorizontal: 10,
