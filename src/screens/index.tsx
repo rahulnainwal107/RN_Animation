@@ -10,3 +10,4 @@ export { default as Animation9 } from "./Animation9";
 export { default as Animation10 } from "./Animation10";
 export { default as Animation11 } from "./Animation11";
 export { default as Animation12 } from "./Animation12";
+export { default as Animation13 } from "./Animation13";

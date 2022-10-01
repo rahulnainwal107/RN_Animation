@@ -90,6 +90,12 @@ function Buttons({ navigation }) {
       subTitle: "Zoho people like button",
       onPress: onButtonPress.bind(this, "Animation12"),
     },
+    {
+      id: 13,
+      buttonName: "Button with swip to right",
+      subTitle: "Amazon pay swip to right button for payment",
+      onPress: onButtonPress.bind(this, "Animation13"),
+    },
   ]);
 
   const renderItem = ({ item }) => {
