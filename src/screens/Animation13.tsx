@@ -3,6 +3,7 @@ import { View, Text, Image, StyleSheet, Dimensions } from "react-native";
 
 import Animated, {
   Easing,
+  interpolate,
   useAnimatedGestureHandler,
   useAnimatedStyle,
   useSharedValue,
@@ -39,24 +40,46 @@ const Animation13 = () => {
     };
   }, []);
 
+  const absoluteButtonText = useAnimatedStyle(() => {
+    return {
+      opacity: interpolate(translateX.value, [0, width / 2], [1, 0]),
+    };
+  }, []);
+
+  const mainButtonText = useAnimatedStyle(() => {
+    return {
+      opacity: interpolate(
+        translateX.value,
+        [0, width / 2, width],
+        [0, 0.8, 1]
+      ),
+    };
+  }, []);
+
   return (
     <View style={styles.container}>
       <View style={styles.buttonContainer}>
-        <Text style={styles.backViewText}>Swipe to pay</Text>
+        <Animated.Text style={[styles.backViewText, mainButtonText]}>
+          Swipe to pay
+        </Animated.Text>
+        <PanGestureHandler onGestureEvent={panGestureHandlerEvent}>
+          <Animated.View
+            style={[styles.swappableButtonStyle, swipeContainerStyle]}
+          >
+            <View style={styles.imageContainer}>
+              <Image
+                source={require("../../assets/rightArrow.png")}
+                style={{ height: "90%", width: "90%" }}
+              />
+            </View>
+            <Animated.Text
+              style={[styles.swappableButtonText, absoluteButtonText]}
+            >
+              Swipe to pay
+            </Animated.Text>
+          </Animated.View>
+        </PanGestureHandler>
       </View>
-      <PanGestureHandler onGestureEvent={panGestureHandlerEvent}>
-        <Animated.View
-          style={[styles.swappableButtonStyle, swipeContainerStyle]}
-        >
-          <View style={styles.imageContainer}>
-            <Image
-              source={require("../../assets/rightArrow.png")}
-              style={{ height: "90%", width: "90%" }}
-            />
-          </View>
-          <Text style={styles.swappableButtonText}>Swipe to pay</Text>
-        </Animated.View>
-      </PanGestureHandler>
     </View>
   );
 };
@@ -76,6 +99,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     justifyContent: "center",
     alignItems: "center",
+    overflow: "hidden",
   },
   backViewText: {
     fontSize: 16,
@@ -84,7 +108,7 @@ const styles = StyleSheet.create({
   },
   swappableButtonStyle: {
     flexDirection: "row",
-    alignSelf: "center",
+    alignSelf: "flex-end",
     height: BUTTON_HEIGHT,
     width: BUTTON_WIDTH,
     backgroundColor: "yellow",
