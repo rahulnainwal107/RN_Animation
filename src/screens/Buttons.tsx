@@ -96,6 +96,13 @@ function Buttons({ navigation }) {
       subTitle: "Amazon pay swip to right button for payment",
       onPress: onButtonPress.bind(this, "Animation13"),
     },
+    {
+      id: 14,
+      buttonName: "ScrollView Animation",
+      subTitle:
+        "ScrollView animation when there is an image on top of scrollView",
+      onPress: onButtonPress.bind(this, "Animation14"),
+    },
   ]);
 
   const renderItem = ({ item }) => {
