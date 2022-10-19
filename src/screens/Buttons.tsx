@@ -11,7 +11,7 @@ interface animationProps {
 }
 
 function Buttons({ navigation }) {
-  const onButtonPress = (routeName) => {
+  const onButtonPress = (routeName: string) => {
     navigation.navigate(routeName);
   };
 
@@ -102,6 +102,12 @@ function Buttons({ navigation }) {
       subTitle:
         "ScrollView animation when there is an image on top of scrollView",
       onPress: onButtonPress.bind(this, "Animation14"),
+    },
+    {
+      id: 15,
+      buttonName: "Phone call animation",
+      subTitle: "A kind of phone call animation",
+      onPress: onButtonPress.bind(this, "Animation15"),
     },
   ]);
 
