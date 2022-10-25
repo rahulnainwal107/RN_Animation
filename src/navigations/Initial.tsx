@@ -21,6 +21,7 @@ import {
   Animation13,
   Animation14,
   Animation15,
+  Animation16,
 } from "../screens/index";
 
 const Stack = createNativeStackNavigator();
@@ -52,6 +53,7 @@ function Initial() {
         component={Animation15}
         options={{ headerTransparent: true }}
       />
+      <Stack.Screen name="Animation16" component={Animation16} />
     </Stack.Navigator>
   );
 }

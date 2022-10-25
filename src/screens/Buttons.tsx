@@ -109,6 +109,12 @@ function Buttons({ navigation }) {
       subTitle: "A kind of phone call animation",
       onPress: onButtonPress.bind(this, "Animation15"),
     },
+    {
+      id: 16,
+      buttonName: "Animation 16",
+      subTitle: "A kind of loader animation",
+      onPress: onButtonPress.bind(this, "Animation16"),
+    },
   ]);
 
   const renderItem = ({ item }) => {
