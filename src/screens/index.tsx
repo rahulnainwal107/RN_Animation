@@ -14,3 +14,4 @@ export { default as Animation13 } from "./Animation13";
 export { default as Animation14 } from "./Animation14";
 export { default as Animation15 } from "./Animation15";
 export { default as Animation16 } from "./Animation16";
+export { default as Animation17 } from "./Animation17";
