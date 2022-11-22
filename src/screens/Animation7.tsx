@@ -1,9 +1,20 @@
 import React, { useState } from "react";
 import { View, StyleSheet, TouchableOpacity } from "react-native";
 
-import { useDerivedValue, withSpring } from "react-native-reanimated";
+import Animated, {
+  useDerivedValue,
+  useSharedValue,
+  withSpring,
+  useAnimatedStyle,
+  interpolate,
+  interpolateColor,
+  withTiming,
+} from "react-native-reanimated";
+import Ionicons from "@expo/vector-icons/Ionicons";
 
 import Animated7Button from "../components/Animated7Button";
+
+const AnimatedIcon = Animated.createAnimatedComponent(Ionicons);
 
 const MAIN_BUTTON_HEIGHT = 80,
   MAIN_BUTTON_WIDTH = MAIN_BUTTON_HEIGHT;
@@ -18,15 +29,31 @@ const BUTTONS = [
 type buttonPress = true | false;
 
 const Animation7 = () => {
-  const [isButtonPressed, setButtonPressed] = useState<buttonPress>(false);
-  const animationValue = useDerivedValue(
-    () => (isButtonPressed ? withSpring(1) : withSpring(0)),
-    [isButtonPressed]
-  );
+  // Option 1
+  // const [isButtonPressed, setButtonPressed] = useState<buttonPress>(false);
+  // const animationValue = useDerivedValue(
+  //   () => (isButtonPressed ? 1 : 0),
+  //   [isButtonPressed]
+  // );
+
+  // const onButtonPress = () => {
+  //   setButtonPressed(!isButtonPressed);
+  // };
+
+  // Option 2
+  const animationValue = useSharedValue(0);
 
   const onButtonPress = () => {
-    setButtonPressed(!isButtonPressed);
+    animationValue.value = animationValue.value ? withTiming(0) : withTiming(1);
   };
+
+  const animatedStyle = useAnimatedStyle(() => {
+    const rotate = interpolate(animationValue.value, [0, 1], [0, 45]);
+    return {
+      color: interpolateColor(animationValue.value, [0, 1], ["black", "red"]),
+      transform: [{ rotate: `${rotate}deg` }],
+    };
+  }, []);
 
   return (
     <View style={styles.container}>
@@ -42,7 +69,14 @@ const Animation7 = () => {
             />
           );
         })}
-        <TouchableOpacity style={styles.mainButton} onPress={onButtonPress} />
+        <TouchableOpacity style={styles.mainButton} onPress={onButtonPress}>
+          <AnimatedIcon
+            name={"add"}
+            size={30}
+            color="white"
+            style={animatedStyle}
+          />
+        </TouchableOpacity>
       </View>
     </View>
   );
@@ -68,5 +102,7 @@ const styles = StyleSheet.create({
     shadowOffset: { height: 0, width: 0 },
     shadowColor: "grey",
     shadowRadius: 1,
+    justifyContent: "center",
+    alignItems: "center",
   },
 });

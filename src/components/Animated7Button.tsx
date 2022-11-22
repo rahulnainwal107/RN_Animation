@@ -5,6 +5,7 @@ import Animated, {
   useAnimatedStyle,
   useDerivedValue,
   withSpring,
+  withTiming,
 } from "react-native-reanimated";
 
 const MAIN_BUTTON_HEIGHT = 80,
@@ -27,8 +28,11 @@ const Animated7Button: React.FC<buttonProps> = ({
       transform: [
         {
           translateY: animatedValue.value
-            ? -(index + 1) * MAIN_BUTTON_HEIGHT
-            : 0,
+            ? withSpring(-(index + 1) * MAIN_BUTTON_HEIGHT, {
+                mass: 0.5,
+                stiffness: 50,
+              })
+            : withTiming(0),
         },
       ],
     };
