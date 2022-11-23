@@ -127,6 +127,12 @@ function Buttons({ navigation }) {
       subTitle: "Multiple views",
       onPress: onButtonPress.bind(this, "Animation18"),
     },
+    {
+      id: 19,
+      buttonName: "Animation 19",
+      subTitle: "Loading Animation",
+      onPress: onButtonPress.bind(this, "Animation19"),
+    },
   ]);
 
   const renderItem = ({ item }) => {
