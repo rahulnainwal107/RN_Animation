@@ -34,14 +34,13 @@ const Animation19Component: React.FC<Animation19ComponentProps> = ({
       ),
       transform: [
         { scale: interpolate(animatedValue.value, [0, 1], [1, 2]) },
-        //{ translateY: interpolate(animatedValue.value, [0, 1], [0, -5]) },
+        { translateY: interpolate(animatedValue.value, [0, 1], [0, -5]) },
       ],
     };
   }, []);
 
   return (
     <Animated.View
-      key={index}
       style={[styles.circleContainer, animatedStyle]}
     ></Animated.View>
   );

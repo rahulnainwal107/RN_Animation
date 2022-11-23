@@ -19,7 +19,7 @@ const Animation19 = () => {
   return (
     <View style={styles.main}>
       {dots.map((item) => (
-        <Animation19Component index={item} active={active} />
+        <Animation19Component key={item} index={item} active={active} />
       ))}
     </View>
   );

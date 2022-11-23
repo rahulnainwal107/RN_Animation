@@ -133,6 +133,12 @@ function Buttons({ navigation }) {
       subTitle: "Loading Animation",
       onPress: onButtonPress.bind(this, "Animation19"),
     },
+    {
+      id: 20,
+      buttonName: "Animation 20",
+      subTitle: "Flatlist Animation",
+      onPress: onButtonPress.bind(this, "Animation20"),
+    },
   ]);
 
   const renderItem = ({ item }) => {
