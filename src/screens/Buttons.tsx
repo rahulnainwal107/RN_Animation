@@ -139,6 +139,12 @@ function Buttons({ navigation }) {
       subTitle: "Flatlist Animation",
       onPress: onButtonPress.bind(this, "Animation20"),
     },
+    {
+      id: 21,
+      buttonName: "Animation 21",
+      subTitle: "A kind of sliding on",
+      onPress: onButtonPress.bind(this, "Animation21"),
+    },
   ]);
 
   const renderItem = ({ item }) => {
