@@ -55,6 +55,7 @@ const Animation14 = () => {
       <Animated.ScrollView
         onScroll={scrollHandler}
         style={[styles.scrollViewStyle, animatedStyle]}
+        scrollEventThrottle={16}
       >
         <Text>Scroll Me</Text>
         <Image

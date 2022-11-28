@@ -145,6 +145,12 @@ function Buttons({ navigation }) {
       subTitle: "A kind of sliding on",
       onPress: onButtonPress.bind(this, "Animation21"),
     },
+    {
+      id: 22,
+      buttonName: "Animation 22",
+      subTitle: "",
+      onPress: onButtonPress.bind(this, "Animation22"),
+    },
   ]);
 
   const renderItem = ({ item }) => {
