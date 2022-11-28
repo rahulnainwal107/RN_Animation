@@ -5,6 +5,7 @@ import Animated, {
   interpolate,
   interpolateColor,
   useAnimatedStyle,
+  useDerivedValue,
   useSharedValue,
   withRepeat,
   withTiming,
@@ -15,6 +16,7 @@ import getRandomColor from "../utils/getRandomColor";
 const Animation22 = () => {
   const animatedValue = useSharedValue(0);
   const animatedColor = useSharedValue(getRandomColor());
+  const zindex = useSharedValue(0);
 
   useEffect(() => {
     animatedValue.value = withRepeat(
@@ -23,10 +25,11 @@ const Animation22 = () => {
       true
     );
     animatedColor.value = withRepeat(
-      withTiming(getRandomColor(), { duration: 2000 }),
+      withTiming(getRandomColor(), { duration: 4000 }),
       -1,
-      true
+      false
     );
+    zindex.value = withRepeat(withTiming(1, { duration: 2000 }), -1, false);
   }, []);
 
   const animatedStyle1 = useAnimatedStyle(() => {
@@ -34,6 +37,7 @@ const Animation22 = () => {
       transform: [
         { translateX: interpolate(animatedValue.value, [0, 1], [0, 50]) },
       ],
+      zIndex: zindex.value,
     };
   });
 
