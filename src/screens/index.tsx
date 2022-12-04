@@ -21,3 +21,5 @@ export { default as Animation20 } from "./Animation20";
 export { default as Animation21 } from "./Animation21";
 export { default as Animation22 } from "./Animation22";
 export { default as Animation23 } from "./Animation23";
+export { default as Animation24 } from "./Animation24";
+export { default as Animation25 } from "./Animation25";
